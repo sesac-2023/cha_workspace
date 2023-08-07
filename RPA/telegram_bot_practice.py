@@ -26,10 +26,6 @@ fake_db = {
     '해외' : ['아이슬란드', '덴마크']
 }
 
-async def trip(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    print(update.message.text)
-    print(update.message.chat_id)
-
 
 async def trip(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     print(update.message.text)
