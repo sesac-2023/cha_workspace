@@ -7,8 +7,8 @@ df.drop_duplicates('content', inplace=True)
 df.drop_duplicates('title', inplace=True)
 
 # 본문이 null인 행 제거, 제목이 null인 행 제거
-df.dropna(axis=0, subset=['title'])
-df.dropna(axis=0, subset=['content'])
+df = df.dropna(axis=0, subset=['title'])
+df = df.dropna(axis=0, subset=['content'])
 
 # 본문의 글자수가 50자 이하인 행 제거
 df = df[df['content'].apply(lambda x: len(str(x))>50)]
