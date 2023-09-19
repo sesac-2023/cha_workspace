@@ -16,6 +16,6 @@ df = df[df['content'].apply(lambda x: len(str(x))>50)]
 # 해당 텍스트가 포함된 행 제거
 word_list = ['부고', '단신']
 text = '|'.join(word_list)
-df[~df['title'].str.contains(text)]
+df = df[~df['title'].str.contains(text)]
 
 df.to_csv('./naver_economy_filtered.csv', index=None)
