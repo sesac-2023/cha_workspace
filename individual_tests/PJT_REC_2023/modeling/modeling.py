@@ -39,11 +39,13 @@ def load_doc2vec(file_name='naver.doc2vec'):
     return model
 
 
-# 유사한 기사 10개 추천 받기
-# news_idx = 39000  # 뉴스 index로 입력 -> url이나 제목으로 입력 가능한 기능 추가 고려
-# column_list = ['title', 'date_upload', 'content', 'cos_simil'] # 추천받는 기사의 컬럼 선택
-
-def show_similar_results(data, model, news_idx, column_list=['title', 'date_upload', 'content', 'cos_simil']):
+# 기사 url 로 유사한 기사 10개 추천받기
+def show_similar_results(data, model, url, column_list=['title', 'date_upload', 'content', 'cos_simil']):
+    """
+    기사 url을 이용해서
+    유사한 기사 10개 추천받기
+    """
+    news_idx = data[data['url'] == url].index.values.astype(int)[0]
     similar_docs = model.dv.most_similar(news_idx)
     result = pd.DataFrame()
     for idx, val in similar_docs:
